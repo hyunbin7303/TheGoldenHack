@@ -16,15 +16,25 @@ namespace Backend_Management.Controllers
     {
         private readonly UserAuthenticationContext _context;
 
+        public UserController(UserAuthenticationContext context)
+        {
+            _context = context;
+            SeedData.User_Seed(context);
+        }
 
-
+        [HttpGet]
+        public IEnumerable<User> Get()
+        {
+            var check = _context.User.ToList();
+            return check;
+        }
 
         // This post request is used for registering.
         [HttpPost]
         public string Post([FromBody]User _user)
         {
 
-            if (!_context.Users.Any(user => user.UserId.Equals(_user.UserId)))
+            if (!_context.User.Any(user => user.UserId.Equals(_user.UserId)))
             {
                 User user = new User();
                 user.UserId = _user.UserId;

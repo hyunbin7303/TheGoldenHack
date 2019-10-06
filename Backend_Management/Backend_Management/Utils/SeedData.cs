@@ -74,11 +74,11 @@ namespace Backend_Management.Models
         }
         public static void User_Seed(UserAuthenticationContext context)
         {
-            if (context.Users.Any())
+            if (context.User.Any())
             {
                 return;   // DB has been seeded
             }
-            context.Users.AddRange(
+            context.User.AddRange(
             new User
             {
                 UserId = "Nurse01234",

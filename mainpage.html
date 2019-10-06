@@ -3,7 +3,7 @@
 
 <head>
     <title>DATA</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -27,22 +27,24 @@
 </div>
 <script>
     console.log("HEY");
- $(document).ready(function(){
-     $.getJSON("localhost:52957/hospital", function(data){
-         var data = '';
-         $.each(data, function(key, value){
-             console.log(value.firstName);
-             console.log(value.lastName);
-             data += '<tr>';
-             data+= '<td>' + value.firstName +'</td>';
-             data +='<td>' + value.lastName + '</td>';
-             data+= '<td>' + value.firstName + '</td>';
-             data+= '</tr>';
-         });
-         $('#patient_table').append(data);
-     });
- });
+ 
 
+const Http = new XMLHttpRequest();
+const url='http://localhost:52957/Hospital';
+
+Http.open("GET", url);
+
+
+Http.setRequestHeader("Content-Type", "application/json");
+Http.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:52957");
+Http.setRequestHeader("Vary", "Origin");
+Http.send();
+
+Http.onreadystatechange = (e) => {
+    console.log("Hello");
+    //console.log(e);
+  console.log((JSON.parse(Http.responseText)));
+}
 
 </script>
 
