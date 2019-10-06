@@ -17,8 +17,7 @@ namespace PasswordGenerator
                     Convert.FromBase64String(test)));
             Console.WriteLine(test2);
 
-
-                var client_post_hash_password = Convert.ToBase64String(
+             var client_post_hash_password = Convert.ToBase64String(
                     Hashing.SaltHashPassword(Encoding.ASCII.GetBytes(temp_pass),
                                             Convert.FromBase64String(test)));
             Console.WriteLine(client_post_hash_password);

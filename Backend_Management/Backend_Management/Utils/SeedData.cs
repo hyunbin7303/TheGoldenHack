@@ -118,7 +118,7 @@ namespace Backend_Management.Models
                 UseraccessId = "ede81cdf-7fa3-43ba-b3cf-ed67eed58dbd",
                 AccessCode = "a93ed7db-f1d5-4998-96ba-500c40427150"
             } );
-
+            context.SaveChanges();
 
         }
        
