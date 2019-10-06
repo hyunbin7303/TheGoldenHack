@@ -46,7 +46,7 @@ namespace Backend_Management.Controllers
             {
                  User user = _context.Users.Where(u => u.UserId.Equals(value.UserId)).First();
                  if(user.Password.Equals(value.Password))
-                {
+                {                    
                     return JsonConvert.SerializeObject(user);
                 }
                 else
