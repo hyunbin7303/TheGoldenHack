@@ -104,7 +104,7 @@ namespace Backend_Management.Models
             if (context.userauth.Any())
                 return;
             context.Users.AddRange();
-
+            context.SaveChanges();
         }
     }
 }
