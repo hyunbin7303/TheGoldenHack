@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend_Management", "Backend_Management\Backend_Management.csproj", "{AC00591F-86D2-4190-B5FA-5345A74B7DFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend_Management", "Backend_Management\Backend_Management.csproj", "{AC00591F-86D2-4190-B5FA-5345A74B7DFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator", "PasswordGenerator\PasswordGenerator.csproj", "{5362ED1A-E5A5-4E23-AA6B-D3DE37838C16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AC00591F-86D2-4190-B5FA-5345A74B7DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC00591F-86D2-4190-B5FA-5345A74B7DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC00591F-86D2-4190-B5FA-5345A74B7DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5362ED1A-E5A5-4E23-AA6B-D3DE37838C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5362ED1A-E5A5-4E23-AA6B-D3DE37838C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5362ED1A-E5A5-4E23-AA6B-D3DE37838C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5362ED1A-E5A5-4E23-AA6B-D3DE37838C16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

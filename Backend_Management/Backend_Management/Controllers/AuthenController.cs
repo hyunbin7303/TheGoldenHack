@@ -14,15 +14,16 @@ namespace Backend_Management.Controllers
         private readonly UserAuthenticationContext _context;
         public AuthenController(UserAuthenticationContext context){
             _context = context;
+            SeedData.User_Seed(context);
+            SeedData.Userauth_Seed(context);
         }
-
-
 
         // getting from the user input.
         [HttpPost]
-        public IEnumerable<Userauth> Post([FromBody]User)
+        public IEnumerable<Userauth> Post([FromBody]User user)
         {
-            var test = _context.PassingUserInfo(_id, _password);
+            var test = _context.AuthenUser(user.UserId, user.Password);
+            //e985d0e1-c62e-434f-942d-524325bbe517
             return null;
         }
 

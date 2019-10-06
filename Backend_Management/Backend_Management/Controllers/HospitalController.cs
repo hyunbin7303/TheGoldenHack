@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Backend_Management.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Backend_Management.Controllers
 {
@@ -19,11 +20,9 @@ namespace Backend_Management.Controllers
             _hospitalContext = hospitalContext;
             if(!onOff)
             {
-                SeedData.User_Seed(hospitalContext);
                 SeedData.Hospital_Seed(hospitalContext);
                 onOff = true;
             }
-
 
         }
         [HttpGet]
@@ -32,5 +31,27 @@ namespace Backend_Management.Controllers
             var patient = _hospitalContext.Patient.ToList();
             return patient;
         }
+
+        [HttpGet]
+        [Route("GetPatients/{_groupid}")]
+        public IEnumerable<Patient> GetByLocationid(string _groupid)
+        {
+            IEnumerable<Patient> patients = new List<Patient>();
+            if (_hospitalContext.Patient.Any(p => p.PatientGroupedId.Equals(_groupid)))
+            {
+
+                patients = from b in _hospitalContext.Patient
+                            where b.PatientGroupedId.Equals(_groupid)
+                            select b;
+            }
+            else
+            {
+                return null;
+            }
+            return patients;
+
+        }
+
+
     }
 }

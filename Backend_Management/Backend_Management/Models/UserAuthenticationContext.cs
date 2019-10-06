@@ -5,6 +5,7 @@ namespace Backend_Management.Models
 {
     public class UserAuthenticationContext : DbContext
     {
+        public DbSet<User> Users { get; set; }
         public DbSet<Userauth> userauth  { get; set; }
         public UserAuthenticationContext(DbContextOptions<UserAuthenticationContext> options) : base(options)
         {

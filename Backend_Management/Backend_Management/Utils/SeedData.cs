@@ -11,39 +11,68 @@ namespace Backend_Management.Models
     {
         public static void Hospital_Seed(HospitalContext context)
         {
-
             if (context.Patient.Any())
-            {
                 return;   // DB has been seeded
-            }
             context.Patient.AddRange(
             new Patient
             {
                 PatientId = Guid.NewGuid().ToString(),
-                PatientGroupedId = Guid.NewGuid().ToString(),
+                PatientGroupedId = "e985d0e1-c62e-434f-942d-524325bbe517",
                 FirstName = "Kevin",
                 LastName = "Park",
                 LastVisit = DateTime.Today
             },
-        new Patient
+            new Patient
         {
             PatientId = Guid.NewGuid().ToString(),
-            PatientGroupedId = Guid.NewGuid().ToString(),
+            PatientGroupedId = "e985d0e1-c62e-434f-942d-524325bbe517",
             FirstName = "Habib",
             LastName = "sadfkldskfds",
             LastVisit = DateTime.Today
         },
-        new Patient
+            new Patient
         {
             PatientId = Guid.NewGuid().ToString(),
-            PatientGroupedId = Guid.NewGuid().ToString(),
+            PatientGroupedId = "e985d0e1-c62e-434f-942d-524325bbe517",
             FirstName = "Julio",
             LastName = "Rivas",
             LastVisit = DateTime.Today
-        });
+        },
+            new Patient
+            {
+                PatientId = Guid.NewGuid().ToString(),
+                PatientGroupedId = "668be104-42d9-404e-a18e-1995305df863",
+                FirstName = "Adam",
+                LastName = "Sosnowski",
+                LastVisit = DateTime.Today
+            },
+            new Patient
+            {
+                PatientId = Guid.NewGuid().ToString(),
+                PatientGroupedId = "668be104-42d9-404e-a18e-1995305df863",
+                FirstName = "Julio",
+                LastName = "Rivas",
+                LastVisit = DateTime.Today
+            },
+            new Patient
+            {
+                PatientId = Guid.NewGuid().ToString(),
+                PatientGroupedId = "668be104-42d9-404e-a18e-1995305df863",
+                FirstName = "Julio",
+                LastName = "Rivas",
+                LastVisit = DateTime.Today
+            },
+            new Patient
+            {
+                PatientId = Guid.NewGuid().ToString(),
+                PatientGroupedId = "a93ed7db-f1d5-4998-96ba-500c40427150",
+                FirstName = "show",
+                LastName = "whoyouare",
+                LastVisit = DateTime.Today
+            });
             context.SaveChanges();
         }
-        public static void User_Seed(HospitalContext context)
+        public static void User_Seed(UserAuthenticationContext context)
         {
             if (context.Users.Any())
             {
@@ -72,10 +101,10 @@ namespace Backend_Management.Models
         }
         public static void Userauth_Seed(UserAuthenticationContext context)
         {
-            if(context.userauth.Any())
+            if (context.userauth.Any())
                 return;
-        
-            
+
+
         }
     }
 }
