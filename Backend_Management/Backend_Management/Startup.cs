@@ -42,7 +42,7 @@ namespace Backend_Management
 
             app.UseRouting();
 
-            app.UseAuthorization();
+          //  app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

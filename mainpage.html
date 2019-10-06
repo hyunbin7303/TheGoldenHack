@@ -1,50 +1,71 @@
-<!DOCTYPE html>
-<html>
 
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
     <title>DATA</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css" />
+    <style>
+        p{
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Patients for this Nurse</h1>
+    </header>
+    <main>
+        <p>Response will appear here after you click.</p>
+    </main>
+<p id="demo"></p>
+    <script>
+        let p;
+        const url = "http://localhost:52957/hospital";
+        document.addEventListener('DOMContentLoaded', 
+            function(){
+                p = document.querySelector('main>p');
+                p.addEventListener('click', doFetch);
+            });
+        function doFetch(ev){
+            var txt = "";
+            let h = new Headers();
+            h.append('Accept', 'application/json');
+            let req = new Request(url, {
+                method: 'GET',
+                headers: h,
+                mode: 'cors'
+            });
+            fetch(req)
+            .then( (response)=>{
+                if(response.ok){
+                    return response.json();
+                }else{
+                    throw new Error('BAD HTTP stuff');
+                }
+            })
+            .then( (jsonData) =>{
+                console.log(jsonData);
+                var store = JSON.stringify(jsonData, null, 4);
+              //  p.textContent =store;
+                txt += "<table border='3'>"
+                for(x in jsonData){
+                    txt += "<tr><td>" +  jsonData[x].patientId +"</td><td>" + jsonData[x].firstName + "-"+ jsonData[x].lastName + "</td><td>" +jsonData[x].lastVisit + "</td></tr>";
+                }
+                 txt += "</table>"
+                 document.getElementById("demo").innerHTML = txt;
 
-<h2>Make a table based on JSON data.</h2>
 
-<div class="container">
-    <div class="table-responsive">
-            <h1>hey</h1>
-            <table class= "table" id="patient_table">
-                    <thead>
-                        <tr>
-                            <th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                        </tr>
-                    </thead>
-            </table>
-    </div>
-
-</div>
-<script>
-    console.log("HEY");
- $(document).ready(function(){
-     $.getJSON("localhost:52957/hospital", function(data){
-         var data = '';
-         $.each(data, function(key, value){
-             console.log(value.firstName);
-             console.log(value.lastName);
-             data += '<tr>';
-             data+= '<td>' + value.firstName +'</td>';
-             data +='<td>' + value.lastName + '</td>';
-             data+= '<td>' + value.firstName + '</td>';
-             data+= '</tr>';
-         });
-         $('#patient_table').append(data);
-     });
- });
-
-
-</script>
-
+            })
+            .catch( (err) =>{
+                console.log('ERROR:', err.message);
+            });
+        }
+    </script>
 </body>
 </html>
