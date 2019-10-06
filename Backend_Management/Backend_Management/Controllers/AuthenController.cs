@@ -20,9 +20,9 @@ namespace Backend_Management.Controllers
 
         // getting from the user input.
         [HttpPost]
-        public IEnumerable<Userauth> Post([FromBody]User)
+        public IEnumerable<Userauth> Post([FromBody]User user)
         {
-            var test = _context.PassingUserInfo(_id, _password);
+            //var test = _context.PassingUserInfo(_id, _password);
             return null;
         }
 

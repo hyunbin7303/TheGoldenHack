@@ -30,7 +30,7 @@ namespace Backend_Management.Models
             PatientId = Guid.NewGuid().ToString(),
             PatientGroupedId = Guid.NewGuid().ToString(),
             FirstName = "Habib",
-            LastName = "sadfkldskfds",
+            LastName = "Shakibanejad",
             LastVisit = DateTime.Today
         },
         new Patient
@@ -60,13 +60,13 @@ namespace Backend_Management.Models
             {
                 UserId = "Nurse9999",
                 StationId = "668be104-42d9-404e-a18e-1995305df863",
-                Password = "12345"
+                Password = "67890"
             },
             new User
             {
                 UserId = "Nurse5555",
                 StationId = "a93ed7db-f1d5-4998-96ba-500c40427150",
-                Password = "12345"
+                Password = "54321"
             });
             context.SaveChanges();
         }
