@@ -23,7 +23,6 @@ namespace Backend_Management.Controllers
         public IEnumerable<Userauth> Post([FromBody]User user)
         {
             var test = _context.AuthenUser(user.UserId, user.Password);
-            //e985d0e1-c62e-434f-942d-524325bbe517
             return null;
         }
 
