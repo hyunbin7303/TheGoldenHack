@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Backend_Management.Models
 {
-    public class User // nurses
+    public class Userauth
     {
-        public string UserId { get; set; }
-        public string Password { get; set; }
-        public string StationId { get; set; }
+        [Key]
+        public string UseraccessId { get; set; }
+        public string AccessCode { get; set; }
 
     }
 }

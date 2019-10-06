@@ -15,7 +15,6 @@ namespace Backend_Management
 {
     public class Startup
     {
-        private string _connectionString = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,9 +25,10 @@ namespace Backend_Management
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            _connectionString = Configuration["secretConnectionString"];
             services.AddControllers();
-            services.AddDbContext<AuthenticationContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("AuthenticationContext")));
+            services.AddDbContext<UserAuthenticationContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("AuthenConnectionString")));
+            services.AddDbContext<HospitalContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("HospitalConnectionString")));
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
