@@ -37,16 +37,21 @@ namespace Backend_Management.Controllers
         //        return JsonConvert.SerializeObject("User is existing in the database.");
         //    }
         //}
+        [HttpGet]
+        public string Get()
+        {
+            return "authen";
+        }
 
 
         [HttpPost]
         public string Post([FromBody]User value)
         {
-            if(_context.Users.Any(user => user.UserId.Equals(value.UserId)))
+            if(_context.User.Any(user => user.UserId.Equals(value.UserId)))
             {
-                 User user = _context.Users.Where(u => u.UserId.Equals(value.UserId)).First();
+                 User user = _context.User.Where(u => u.UserId.Equals(value.UserId)).First();
                  if(user.Password.Equals(value.Password))
-                {
+                {                    
                     return JsonConvert.SerializeObject(user);
                 }
                 else

@@ -74,27 +74,27 @@ namespace Backend_Management.Models
         }
         public static void User_Seed(UserAuthenticationContext context)
         {
-            if (context.Users.Any())
+            if (context.User.Any())
             {
                 return;   // DB has been seeded
             }
-            context.Users.AddRange(
+            context.User.AddRange(
             new User
             {
                 UserId = "Nurse01234",
-                UseraccessId = "e985d0e1-c62e-434f-942d-524325bbe517",
+                UseraccessId = "04483dcf-c8a4-4d2c-b903-2ec2fc211fc5",
                 Password = "12345"
             },
             new User
             {
                 UserId = "Nurse9999",
-                UseraccessId = "668be104-42d9-404e-a18e-1995305df863",
+                UseraccessId = "bf57209f-601b-4640-8d23-abbcfce6f6bb",
                 Password = "67890"
             },
             new User
             {
                 UserId = "Nurse5555",
-                UseraccessId = "a93ed7db-f1d5-4998-96ba-500c40427150",
+                UseraccessId = "ede81cdf-7fa3-43ba-b3cf-ed67eed58dbd",
                 Password = "54321"
             });
             context.SaveChanges();
@@ -103,8 +103,24 @@ namespace Backend_Management.Models
         {
             if (context.userauth.Any())
                 return;
-            context.Users.AddRange();
+            context.userauth.AddRange(
+            new Userauth
+            {  UseraccessId = "04483dcf-c8a4-4d2c-b903-2ec2fc211fc5",
+                AccessCode = "e985d0e1-c62e-434f-942d-524325bbe517"
+            },
+            new Userauth
+            {
+                UseraccessId = "bf57209f-601b-4640-8d23-abbcfce6f6bb",
+                AccessCode = "668be104-42d9-404e-a18e-1995305df863"
+            },
+            new Userauth
+            {
+                UseraccessId = "ede81cdf-7fa3-43ba-b3cf-ed67eed58dbd",
+                AccessCode = "a93ed7db-f1d5-4998-96ba-500c40427150"
+            } );
             context.SaveChanges();
+
         }
+       
     }
 }

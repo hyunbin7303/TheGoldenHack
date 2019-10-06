@@ -14,19 +14,22 @@ namespace Backend_Management.Controllers
     public class HospitalController : ControllerBase
     {
         private readonly HospitalContext _hospitalContext;
+        private readonly UserAuthenticationContext _userAuthContext;
         private static bool onOff = false;
-        public HospitalController(HospitalContext hospitalContext)
+        public HospitalController(HospitalContext hospitalContext, UserAuthenticationContext userAuthContext)
         {
             _hospitalContext = hospitalContext;
+            _userAuthContext = userAuthContext;
             if(!onOff)
             {
                 SeedData.Hospital_Seed(hospitalContext);
+                SeedData.Userauth_Seed(userAuthContext);
                 onOff = true;
             }
 
         }
         [HttpGet]
-        public IEnumerable<Patient> Get()
+        public IEnumerable<Patient> Get(string userAccessId, string patientId)
         {
             var patient = _hospitalContext.Patient.ToList();
             return patient;
@@ -46,7 +49,7 @@ namespace Backend_Management.Controllers
             }
             else
             {
-                return null;
+                return new List<Patient>();
             }
             return patients;
 
