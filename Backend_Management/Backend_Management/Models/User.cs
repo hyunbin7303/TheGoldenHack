@@ -10,7 +10,7 @@ namespace Backend_Management.Models
     {
         public string UserId { get; set; }
         public string Password { get; set; }
-        public string StationId { get; set; }
+        public string UseraccessId { get; set; }
         public string Salt { get; set; }
 
     }

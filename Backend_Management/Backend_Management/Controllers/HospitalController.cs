@@ -37,11 +37,11 @@ namespace Backend_Management.Controllers
         public IEnumerable<Patient> GetByLocationid(string _groupid)
         {
             IEnumerable<Patient> patients = new List<Patient>();
-            if (_hospitalContext.Patient.Any(p => p.PatientGroupedId.Equals(_groupid)))
+            if (_hospitalContext.Patient.Any(p => p.PatientGroupId.Equals(_groupid)))
             {
 
                 patients = from b in _hospitalContext.Patient
-                            where b.PatientGroupedId.Equals(_groupid)
+                            where b.PatientGroupId.Equals(_groupid)
                             select b;
             }
             else

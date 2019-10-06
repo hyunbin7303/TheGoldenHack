@@ -17,7 +17,7 @@ namespace Backend_Management.Models
             new Patient
             {
                 PatientId = Guid.NewGuid().ToString(),
-                PatientGroupedId = "e985d0e1-c62e-434f-942d-524325bbe517",
+                PatientGroupId = "e985d0e1-c62e-434f-942d-524325bbe517",
                 FirstName = "Kevin",
                 LastName = "Park",
                 LastVisit = DateTime.Today
@@ -25,7 +25,7 @@ namespace Backend_Management.Models
             new Patient
         {
             PatientId = Guid.NewGuid().ToString(),
-            PatientGroupedId = "e985d0e1-c62e-434f-942d-524325bbe517",
+            PatientGroupId = "e985d0e1-c62e-434f-942d-524325bbe517",
             FirstName = "Habib",
             LastName = "Shakibanejad",
             LastVisit = DateTime.Today
@@ -33,7 +33,7 @@ namespace Backend_Management.Models
             new Patient
         {
             PatientId = Guid.NewGuid().ToString(),
-            PatientGroupedId = "e985d0e1-c62e-434f-942d-524325bbe517",
+            PatientGroupId = "e985d0e1-c62e-434f-942d-524325bbe517",
             FirstName = "Julio",
             LastName = "Rivas",
             LastVisit = DateTime.Today
@@ -41,7 +41,7 @@ namespace Backend_Management.Models
             new Patient
             {
                 PatientId = Guid.NewGuid().ToString(),
-                PatientGroupedId = "668be104-42d9-404e-a18e-1995305df863",
+                PatientGroupId = "668be104-42d9-404e-a18e-1995305df863",
                 FirstName = "Adam",
                 LastName = "Sosnowski",
                 LastVisit = DateTime.Today
@@ -49,7 +49,7 @@ namespace Backend_Management.Models
             new Patient
             {
                 PatientId = Guid.NewGuid().ToString(),
-                PatientGroupedId = "668be104-42d9-404e-a18e-1995305df863",
+                PatientGroupId = "668be104-42d9-404e-a18e-1995305df863",
                 FirstName = "Julio",
                 LastName = "Rivas",
                 LastVisit = DateTime.Today
@@ -57,7 +57,7 @@ namespace Backend_Management.Models
             new Patient
             {
                 PatientId = Guid.NewGuid().ToString(),
-                PatientGroupedId = "668be104-42d9-404e-a18e-1995305df863",
+                PatientGroupId = "668be104-42d9-404e-a18e-1995305df863",
                 FirstName = "Julio",
                 LastName = "Rivas",
                 LastVisit = DateTime.Today
@@ -65,7 +65,7 @@ namespace Backend_Management.Models
             new Patient
             {
                 PatientId = Guid.NewGuid().ToString(),
-                PatientGroupedId = "a93ed7db-f1d5-4998-96ba-500c40427150",
+                PatientGroupId = "a93ed7db-f1d5-4998-96ba-500c40427150",
                 FirstName = "show",
                 LastName = "whoyouare",
                 LastVisit = DateTime.Today
@@ -82,19 +82,19 @@ namespace Backend_Management.Models
             new User
             {
                 UserId = "Nurse01234",
-                StationId = "e985d0e1-c62e-434f-942d-524325bbe517",
+                UseraccessId = "e985d0e1-c62e-434f-942d-524325bbe517",
                 Password = "12345"
             },
             new User
             {
                 UserId = "Nurse9999",
-                StationId = "668be104-42d9-404e-a18e-1995305df863",
+                UseraccessId = "668be104-42d9-404e-a18e-1995305df863",
                 Password = "67890"
             },
             new User
             {
                 UserId = "Nurse5555",
-                StationId = "a93ed7db-f1d5-4998-96ba-500c40427150",
+                UseraccessId = "a93ed7db-f1d5-4998-96ba-500c40427150",
                 Password = "54321"
             });
             context.SaveChanges();
@@ -103,7 +103,7 @@ namespace Backend_Management.Models
         {
             if (context.userauth.Any())
                 return;
-
+            context.Users.AddRange();
 
         }
     }
